@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="twilight">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chia Fang — Portfolio</title>
+<meta name="description" content="Chia Fang: debugger who builds. Projects, story bank, and contact.">
+<style>
+/* ============ THEMES ============ */
+[data-theme="twilight"]{
+  --bg:#101238; --bg2:#0b3b4f; --text:#f2f4ff; --muted:#b9c2e8;
+  --accent:#22d3ee; --accent2:#a78bfa; --card:rgba(255,255,255,.06);
+  --card-border:rgba(255,255,255,.14); --glow:0 0 24px rgba(34,211,238,.25);
+  --heading-font:"Segoe UI",system-ui,-apple-system,sans-serif;
+  --body-font:"Segoe UI",system-ui,-apple-system,sans-serif;
+  --radius:16px; --page-bg:linear-gradient(135deg,var(--bg),var(--bg2));
+}
+[data-theme="ember"]{
+  --bg:#2b0a12; --bg2:#4a1e0a; --text:#fff5f0; --muted:#e8b9a8;
+  --accent:#f472b6; --accent2:#fbbf24; --card:rgba(255,255,255,.06);
+  --card-border:rgba(255,255,255,.14); --glow:0 0 24px rgba(244,114,182,.25);
+  --heading-font:"Segoe UI",system-ui,-apple-system,sans-serif;
+  --body-font:"Segoe UI",system-ui,-apple-system,sans-serif;
+  --radius:16px; --page-bg:linear-gradient(135deg,var(--bg),var(--bg2));
+}
+[data-theme="midnight"]{
+  --bg:#0d1117; --bg2:#0d1117; --text:#e6edf3; --muted:#8b949e;
+  --accent:#3fb950; --accent2:#58a6ff; --card:#161b22;
+  --card-border:#30363d; --glow:none;
+  --heading-font:ui-monospace,"Cascadia Code",Consolas,monospace;
+  --body-font:ui-monospace,"Cascadia Code",Consolas,monospace;
+  --radius:6px; --page-bg:var(--bg);
+}
+[data-theme="paper"]{
+  --bg:#faf9f7; --bg2:#faf9f7; --text:#1a1a1a; --muted:#5c5c5c;
+  --accent:#1a1a1a; --accent2:#8a6d3b; --card:#ffffff;
+  --card-border:#e5e2dc; --glow:none;
+  --heading-font:Georgia,"Times New Roman",serif;
+  --body-font:Georgia,"Times New Roman",serif;
+  --radius:4px; --page-bg:var(--bg);
+}
+[data-theme="avocado"]{
+  --bg:#fdfbf3; --bg2:#fdfbf3; --text:#1e3d1f; --muted:#5c7355;
+  --accent:#4d7c0f; --accent2:#eab308; --card:#ffffff;
+  --card-border:#e3e8d2; --glow:0 8px 24px rgba(77,124,15,.12);
+  --heading-font:"Trebuchet MS","Segoe UI",system-ui,sans-serif;
+  --body-font:"Trebuchet MS","Segoe UI",system-ui,sans-serif;
+  --radius:22px; --page-bg:var(--bg);
+}
+[data-theme="goldenhour"]{
+  --bg:#faf3e8; --bg2:#faf3e8; --text:#3b2314; --muted:#7a5c42;
+  --accent:#c2410c; --accent2:#d97706; --card:#fffdf8;
+  --card-border:#e8d9c0; --glow:none;
+  --heading-font:Georgia,"Palatino Linotype",serif;
+  --body-font:Georgia,"Palatino Linotype",serif;
+  --radius:14px; --page-bg:var(--bg);
+}
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--page-bg);color:var(--text);font-family:var(--body-font);line-height:1.6;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom:1px solid var(--card-border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-family:var(--heading-font);font-weight:700;font-size:1.25rem;color:var(--text)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.95rem}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+/* hero */
+.hero{padding:96px 0 72px;text-align:center}
+.hero h1{font-family:var(--heading-font);font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.1;margin-bottom:12px}
+.hero .tagline{font-size:1.35rem;color:var(--accent);font-weight:600;margin-bottom:20px}
+.hero p.lead{max-width:640px;margin:0 auto 32px;color:var(--muted);font-size:1.08rem}
+.btn{display:inline-block;padding:12px 28px;border-radius:999px;font-weight:600;margin:0 8px 8px;
+  background:var(--accent);color:#fff;border:1px solid transparent;cursor:pointer;font-size:1rem}
+[data-theme="paper"] .btn,[data-theme="avocado"] .btn,[data-theme="goldenhour"] .btn{color:#fff}
+[data-theme="midnight"] .btn{color:#0d1117}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+/* sections */
+section{padding:56px 0}
+section h2{font-family:var(--heading-font);font-size:1.9rem;margin-bottom:8px}
+section .sub{color:var(--muted);margin-bottom:32px}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--glow);display:flex;flex-direction:column}
+.card h3{font-family:var(--heading-font);font-size:1.2rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.96rem;flex:1;margin-bottom:16px}
+.card .links{display:flex;gap:14px;font-size:.92rem;font-weight:600}
+.card .links a{white-space:nowrap}
+/* story bank banner */
+.storybank{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:36px;box-shadow:var(--glow);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.storybank h3{font-family:var(--heading-font);font-size:1.4rem;margin-bottom:8px}
+.storybank p{color:var(--muted);max-width:560px}
+/* about */
+.about p{color:var(--muted);margin-bottom:16px;max-width:720px}
+.about p strong{color:var(--text)}
+/* contact */
+.contact{text-align:center}
+.contact .row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+/* footer */
+footer{border-top:1px solid var(--card-border);padding:28px 0;text-align:center;color:var(--muted);font-size:.9rem}
+/* theme switcher */
+#themeFab{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--card);
+  border:1px solid var(--card-border);color:var(--text);border-radius:999px;padding:12px 20px;
+  font-family:var(--body-font);font-size:.95rem;cursor:pointer;box-shadow:var(--glow)}
+#themePanel{position:fixed;right:20px;bottom:72px;z-index:100;background:var(--card);
+  border:1px solid var(--card-border);border-radius:var(--radius);padding:14px;display:none;
+  box-shadow:var(--glow);min-width:210px}
+#themePanel.open{display:block}
+#themePanel button{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;
+  color:var(--text);font-family:var(--body-font);font-size:.95rem;padding:9px 10px;border-radius:8px;cursor:pointer;text-align:left}
+#themePanel button:hover{background:color-mix(in srgb, var(--accent) 14%, transparent)}
+#themePanel button.active{outline:1px solid var(--accent)}
+.swatch{width:22px;height:22px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.4)}
+@media(max-width:640px){.nav-links{gap:14px}.hero{padding:64px 0 48px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <span class="brand">Chia Fang</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#storybank">Story Bank</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Chia Fang</h1>
+    <div class="tagline">debugger who builds</div>
+    <p class="lead">I build practical software and I find the bugs in it. Career switcher moving from years in call centers and financial operations into software, one shipped project at a time.</p>
+    <a class="btn" href="#projects">View Projects</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/chia-fang">LinkedIn</a>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="projects">
+  <h2>Projects</h2>
+  <p class="sub">Things I have built and shipped.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>LuMi — AI Desktop Companion</h3>
+      <p>My closest build: a desktop AI companion I am developing phase by phase in Python. Daily debugging ground for real software.</p>
+      <div class="links"><a href="https://github.com/programmer777x">GitHub</a></div>
+    </div>
+    <div class="card">
+      <h3>Discord Bot Business</h3>
+      <p>Custom Python bots for clients, built and sold as <strong>Prog</strong>. Featured in UptimeRobot's Community Spotlight. Products include the E-commerce and Wallet cog, the Ticket System cog, The Vault bundle, and a $25 installation service.</p>
+      <div class="links">
+        <a href="https://programmer777x.github.io/discord-bot-website/">Bot site</a>
+        <a href="https://codecraft188.gumroad.com/l/the-vault">The Vault</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Online To Do List</h3>
+      <p>A to-do app built on my own task system: two-tier urgency zoning, persistent decimal numbering, zero-friction inbox. Live on GitHub Pages.</p>
+      <div class="links"><a href="https://programmer777x.github.io/online-todo-list/">Try it live</a></div>
+    </div>
+    <div class="card">
+      <h3>Jordan Corrects Alex — Show</h3>
+      <p>A YouTube and podcast show with two AI hosts. I produce every episode: research, scripts, voices, video, and thumbnails.</p>
+      <div class="links"><a href="https://www.youtube.com/">YouTube</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="storybank">
+  <div class="storybank">
+    <div>
+      <h3>Career Story Bank</h3>
+      <p>A STAR-style archive of real problem-solving stories from my builds: the bugs I hit, how I reasoned through them, and what shipped. Proof of the debugger mindset, with receipts.</p>
+    </div>
+    <a class="btn" href="https://programmer777x.github.io/story-bank/">Read the stories</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>About</h2>
+  <p class="sub">The short version.</p>
+  <p>For years I worked in <strong>call centers and financial operations</strong>, including Barclays. I am done with phones and done with being the person who files the ticket. I want to be the person who fixes the system.</p>
+  <p>I am <strong>Python-focused</strong>, shipping real projects while applying to junior QA, data, and operations roles. My positioning is simple: <strong>a debugger who builds</strong>. Reproduce it, isolate it, fix it, verify it, document it. That loop is my whole resume.</p>
+  <p>Open to <strong>100% remote</strong> roles in the US.</p>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p class="sub">The fastest way to reach me.</p>
+  <div class="row">
+    <a class="btn" href="https://www.linkedin.com/in/chia-fang">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/programmer777x">GitHub</a>
+    <a class="btn ghost" href="mailto:nlspt2013@gmail.com">Email</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Chia Fang · Built by hand · <span id="themeName"></span> theme</div>
+</footer>
+
+<button id="themeFab" aria-label="Change theme">Theme</button>
+<div id="themePanel" role="menu" aria-label="Choose theme"></div>
+
+<script>
+(function(){
+  var THEMES = [
+    {id:"twilight",  label:"Twilight Brand",   swatch:"linear-gradient(135deg,#3b2f8f,#0e7d8a)"},
+    {id:"ember",     label:"Ember Brand",      swatch:"linear-gradient(135deg,#a4133c,#f59e0b)"},
+    {id:"midnight",  label:"Midnight Terminal",swatch:"linear-gradient(135deg,#0d1117,#3fb950)"},
+    {id:"paper",     label:"Clean Paper",      swatch:"linear-gradient(135deg,#faf9f7,#8a6d3b)"},
+    {id:"avocado",   label:"LuMi Avocado",     swatch:"linear-gradient(135deg,#4d7c0f,#eab308)"},
+    {id:"goldenhour",label:"Golden Hour",      swatch:"linear-gradient(135deg,#c2410c,#eab308)"}
+  ];
+  var KEY = "portfolio-theme";
+  var root = document.documentElement;
+  var fab = document.getElementById("themeFab");
+  var panel = document.getElementById("themePanel");
+  var themeName = document.getElementById("themeName");
+
+  function labelFor(id){
+    for (var i=0;i<THEMES.length;i++) if (THEMES[i].id===id) return THEMES[i].label;
+    return THEMES[0].label;
+  }
+  function apply(id){
+    root.setAttribute("data-theme", id);
+    try{ localStorage.setItem(KEY, id); }catch(e){}
+    themeName.textContent = labelFor(id);
+    var btns = panel.querySelectorAll("button");
+    for (var i=0;i<btns.length;i++) btns[i].classList.toggle("active", btns[i].dataset.theme===id);
+  }
+  THEMES.forEach(function(t){
+    var b = document.createElement("button");
+    b.dataset.theme = t.id;
+    b.innerHTML = '<span class="swatch" style="background:'+t.swatch+'"></span>'+t.label;
+    b.onclick = function(){ apply(t.id); panel.classList.remove("open"); };
+    panel.appendChild(b);
+  });
+  fab.onclick = function(){ panel.classList.toggle("open"); };
+  document.addEventListener("click", function(e){
+    if (!panel.contains(e.target) && e.target!==fab) panel.classList.remove("open");
+  });
+  var saved = null;
+  try{ saved = localStorage.getItem(KEY); }catch(e){}
+  var valid = THEMES.some(function(t){ return t.id===saved; });
+  apply(valid ? saved : "twilight");
+})();
+</script>
+</body>
+</html>
