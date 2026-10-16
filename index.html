@@ -83,6 +83,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .hero::after{content:"";position:absolute;inset:0;background:var(--hero-veil)}
 .hero .wrap{position:relative;z-index:1}
 .hero h1{font-family:var(--heading-font);font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.1;margin-bottom:12px}
+.hero h1{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card-art{width:100%;height:170px;object-fit:cover;border-radius:calc(var(--radius) - 6px);margin-bottom:16px;border:1px solid var(--card-border)}
+.sb-art{width:200px;flex:none;border-radius:var(--radius);border:1px solid var(--card-border);box-shadow:var(--glow)}
+.about-art{width:100%;max-height:320px;object-fit:cover;border-radius:var(--radius);margin-bottom:28px;border:1px solid var(--card-border)}
+@media(max-width:640px){.sb-art{width:140px}}
 .hero .tagline{font-size:1.35rem;color:var(--accent);font-weight:600;margin-bottom:20px}
 .hero p.lead{max-width:640px;margin:0 auto 32px;color:var(--muted);font-size:1.08rem}
 .btn{display:inline-block;padding:12px 28px;border-radius:999px;font-weight:600;margin:0 8px 8px;
@@ -161,11 +166,13 @@ footer{border-top:1px solid var(--card-border);padding:28px 0;text-align:center;
   <p class="sub">Things I have built and shipped.</p>
   <div class="grid">
     <div class="card">
+      <img class="card-art" src="assets/project-lumi.png" alt="LuMi AI desktop companion illustration" loading="lazy">
       <h3>LuMi — AI Desktop Companion</h3>
       <p>My closest build: a desktop AI companion I am developing phase by phase in Python. Daily debugging ground for real software.</p>
       <div class="links"><a target="_blank" rel="noopener noreferrer" href="https://github.com/programmer777x">GitHub</a></div>
     </div>
     <div class="card">
+      <img class="card-art" src="assets/project-discord-bot.png" alt="Discord bot illustration" loading="lazy">
       <h3>Discord Bot Business</h3>
       <p>Custom Python bots for clients, built and sold as <strong>Prog</strong>. Featured in UptimeRobot's Community Spotlight. Products include the E-commerce and Wallet cog, the Ticket System cog, The Vault bundle, and a $25 installation service.</p>
       <div class="links">
@@ -174,11 +181,13 @@ footer{border-top:1px solid var(--card-border);padding:28px 0;text-align:center;
       </div>
     </div>
     <div class="card">
+      <img class="card-art" src="assets/project-todo.png" alt="To-do list app illustration" loading="lazy">
       <h3>Online To Do List</h3>
       <p>A to-do app built on my own task system: two-tier urgency zoning, persistent decimal numbering, zero-friction inbox. Live on GitHub Pages.</p>
       <div class="links"><a target="_blank" rel="noopener noreferrer" href="https://programmer777x.github.io/online-todo-list/">Try it live</a></div>
     </div>
     <div class="card">
+      <img class="card-art" src="assets/project-show.png" alt="Podcast show illustration" loading="lazy">
       <h3>Jordan Corrects Alex — Show</h3>
       <p>A YouTube and podcast show with two AI hosts. I produce every episode: research, scripts, voices, video, and thumbnails.</p>
       <div class="links"><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@JordanCorrectsAlex">YouTube</a></div>
@@ -188,6 +197,7 @@ footer{border-top:1px solid var(--card-border);padding:28px 0;text-align:center;
 
 <section id="storybank">
   <div class="storybank">
+    <img class="sb-art" src="assets/linkedin-featured-portfolio.png" alt="Glowing storybook illustration" loading="lazy">
     <div>
       <h3>Career Story Bank</h3>
       <p>A STAR-style archive of real problem-solving stories from my builds: the bugs I hit, how I reasoned through them, and what shipped. Proof of the debugger mindset, with receipts.</p>
@@ -198,6 +208,7 @@ footer{border-top:1px solid var(--card-border);padding:28px 0;text-align:center;
 
 <section id="about" class="about">
   <h2>About</h2>
+  <img class="about-art" src="assets/about-debugger.png" alt="Debugger workspace illustration" loading="lazy">
   <p class="sub">The short version.</p>
   <p>For years I worked in <strong>call centers and financial operations</strong>, including Barclays. I am done with phones and done with being the person who files the ticket. I want to be the person who fixes the system.</p>
   <p>I am <strong>Python-focused</strong>, shipping real projects while applying to junior QA, data, and operations roles. My positioning is simple: <strong>a debugger who builds</strong>. Reproduce it, isolate it, fix it, verify it, document it. That loop is my whole resume.</p>
